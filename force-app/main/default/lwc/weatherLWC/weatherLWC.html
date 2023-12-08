@@ -1,0 +1,92 @@
+<!--
+  @description       : 
+  @author            : walid abidi
+  @group             : 
+  @last modified on  : 12-07-2023
+  @last modified by  : walid abidi
+-->
+<template>
+    <lightning-card title="Weather information ">
+      
+           
+      
+        <lightning-layout multiple-rows >
+            <lightning-layout-item size="3" flexibility="auto" padding="horizontal-small" class="slds-text-align_right">
+               
+                
+            </lightning-layout-item>
+            <lightning-layout-item size="9" flexibility="auto" padding="horizontal-small" class="slds-text-align_right">
+                <lightning-button label="Send weather report" variant="brand" onclick={sendWetherReport} class="slds-m-left_x-small">
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+            <div class="container" lwc:dom="manual"></div>
+            <div class="slds-m-top_medium slds-m-bottom_x-large"></div>
+           
+            <template if:false={isSfPage}>
+            <form>
+                <lightning-layout>
+                    <lightning-layout-item size="1" medium-device-size="3" padding="around-small">
+                       <lightning-input 
+                            
+                                label="Latitude"
+                                value={latitude}
+                                onchange={handleLatitudeChange}>
+                        </lightning-input> 
+                           
+                    </lightning-layout-item>
+                    <lightning-layout-item size="1" medium-device-size="3" padding="around-small">                   
+                        <lightning-input 
+                            
+                                name="Longitude"
+                                label="Longitude"
+                                value={longitude}
+                                onchange={handleLogitudeChange}>
+                        </lightning-input> 
+                      </lightning-layout-item>
+                  
+                </lightning-layout>
+            </form>
+        </template>
+        <lightning-layout>
+                <lightning-layout-item size="1" medium-device-size="3" padding="around-small">
+                    <lightning-card icon-name="standard:topic" title="Current Temperature">
+                        <div class="slds-align_absolute-center color-blue">
+                           
+                                {temperatureValue} °  
+                            
+                        </div>
+                    </lightning-card>
+                </lightning-layout-item>
+                <lightning-layout-item size="1" medium-device-size="3" padding="around-small">
+                    <lightning-card icon-name="utility:flow" title="Current Wind Speed">
+                        <div class="slds-align_absolute-center color-grey">
+                           
+                                {windSpeedValue} Km/h
+                            
+                        </div>
+                    </lightning-card>
+                </lightning-layout-item>
+                <lightning-layout-item size="1" medium-device-size="3" padding="around-small">
+                    <lightning-card icon-name="standard:calibration" title="Humidity">
+                        <div class="slds-align_absolute-center color-green">
+                            
+                                {humidityValue}%
+                            
+                        </div>
+                    </lightning-card>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="1" medium-device-size="3" padding="around-small">
+                    <lightning-card icon-name="standard:calibration" title="Current weather condition">
+                        <div class="slds-align_absolute-center color-red">
+                            <template if:true={isSfPage}>
+                                {weatherConditionValue}
+                            </template>
+                        </div>
+                    </lightning-card>
+                </lightning-layout-item>
+         </lightning-layout>
+       
+    </lightning-card>
+</template>
