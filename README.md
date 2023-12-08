@@ -1,10 +1,11 @@
-# Salesforce DX Project: Next Steps
+# Creation of named creadential
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Create a named credential without log and password named geonameNC .
+Use the genoame URL API :http://api.geonames.org/findNearByWeatherJSON
 
-## How Do You Plan to Deploy Your Changes?
+## Create a custom metadata type ?
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Create a custom metadata type username_geoname__mdt  in order to save the geoname username 
 
 ## Configure Your Salesforce DX Project
 
